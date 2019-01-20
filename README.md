@@ -1,25 +1,29 @@
 # Simple Spring Boot Application
 
 ## Requirements
-- MySQL database (see application.properties for default values)
-- GIT
+- Git
+- Maven
 
 ## Clone
 - cd /opt/
-- git clone https://github.com/nWmCZ/SpringBootProjectMaven.git
-- cd /opt/SpringBootProjectMaven
+- git clone https://github.com/nWmCZ/SpringBoot21HelloWorld.git
+- cd SpringBoot21HelloWorld
 
 ## Build JAR
 - mvn clean install
 
 ## Run JAR
-- java -jar /opt/SpringBootProjectMaven/target/SpringBootProjectMaven-0.1-SNAPSHOT.jar
-- if you don't have database, use docker: docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=springboot mysql:5.7
-- for existing database override spring.datasource.url. Run application with parameter --spring.datasource.url=jdbc:mysql://<server_ip>:<server_port>/<db_name>
+- java -jar ./target/SpringBoot21HelloWorld-0.1-SNAPSHOT.jar
+
+## Build Docker image from JAR
+docker build . -t novst/springboot21helloworld
 
 ## Build WAR
 - mvn clean install -P war
 - deploy WAR to Tomcat
+
+## Build Docker image from WAR
+docker build . -t novst/springboot21helloworldwar -f DockerfileWAR
 
 ## Labeling
 - http://label-schema.org/rc1/
